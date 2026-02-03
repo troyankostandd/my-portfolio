@@ -2,18 +2,9 @@ import { Box, Typography, Card, CardContent, Chip, Stack } from "@mui/material";
 import SchoolIcon from "@mui/icons-material/School";
 import TranslateIcon from "@mui/icons-material/Translate";
 import WorkIcon from "@mui/icons-material/Work";
-import { profileData, education } from "../data/profileData";
+import { profileData, education, focusAreas } from "../data/profileData";
 
 const About = () => {
-  const focusAreas = [
-    "Building scalable web applications with modern JavaScript/TypeScript stacks",
-    "Cloud infrastructure and DevOps practices (AWS, Docker, Kubernetes)",
-    "Performance optimization and system reliability",
-    "API design and microservices architecture",
-    "Database optimization and data management",
-    "Team collaboration in distributed, remote-first environments",
-  ];
-
   return (
     <Box>
       <Typography

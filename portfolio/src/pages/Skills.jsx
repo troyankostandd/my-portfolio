@@ -4,7 +4,7 @@ import StorageIcon from "@mui/icons-material/Storage";
 import CloudIcon from "@mui/icons-material/Cloud";
 import WebIcon from "@mui/icons-material/Web";
 import BuildIcon from "@mui/icons-material/Build";
-import { skills } from "../data/profileData";
+import { skills, skillsIntro } from "../data/profileData";
 
 const iconMap = {
   "Programming Languages": <CodeIcon />,
@@ -34,8 +34,7 @@ const Skills = () => {
         variant="body1"
         sx={{ marginBottom: 4, color: "#7a8288", fontSize: "1.1rem" }}
       >
-        Over 8 years of experience working with a diverse set of technologies
-        across the full stack. Here's an overview of my technical expertise:
+        {skillsIntro}
       </Typography>
 
       <Grid container spacing={3}>

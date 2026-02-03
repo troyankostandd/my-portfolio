@@ -1,3 +1,84 @@
+// Default export for current stack
+export const projects = [
+  {
+    title: "Squareup Developer Portal",
+    description:
+      "Developer portal for Squareup, providing API documentation and tools for payment integration.",
+    tech: ["React", "Next.js", "Node.js", "API"],
+    github: "https://github.com/troyankostandd",
+    image: "/src/assets/projects/developer.squareup.com.png",
+    live: "https://developer.squareup.com",
+  },
+  {
+    title: "Spotify Engineering Blog",
+    description:
+      "Engineering blog platform for Spotify, featuring articles on backend, frontend, and data engineering.",
+    tech: ["React", "Gatsby", "GraphQL"],
+    github: "https://github.com/troyankostandd",
+    image: "/src/assets/projects/engineering.atspotify.com.png",
+    live: "https://engineering.atspotify.com",
+  },
+  {
+    title: "LINE Engineering",
+    description:
+      "Technical blog and showcase for LINE's engineering team, covering large-scale messaging infrastructure.",
+    tech: ["Vue.js", "Nuxt.js", "Node.js"],
+    github: "https://github.com/troyankostandd",
+    image: "/src/assets/projects/engineering.linecorp.com.png",
+    live: "https://engineering.linecorp.com",
+  },
+  {
+    title: "Schibsted Vend Platform",
+    description:
+      "E-commerce platform for Schibsted, supporting high-traffic classified ads and secure transactions.",
+    tech: ["React", "Redux", "Node.js", "AWS"],
+    github: "https://github.com/troyankostandd",
+    image: "/src/assets/projects/schibsted-vend.pl.png",
+    live: "https://schibsted-vend.pl",
+  },
+  {
+    title: "BigEng.io Blog",
+    description:
+      "Engineering blog for BigEng.io, focused on distributed systems, cloud, and DevOps best practices.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+    github: "https://github.com/troyankostandd",
+    image: "/src/assets/projects/www.bigeng.io.png",
+    live: "https://www.bigeng.io",
+  },
+  {
+    title: "Eventbrite Engineering",
+    description:
+      "Showcase of Eventbrite's engineering projects, including event management and ticketing solutions.",
+    tech: ["React", "Django", "PostgreSQL"],
+    github: "https://github.com/troyankostandd",
+    image: "/src/assets/projects/www.eventbrite.com.png",
+    live: "https://www.eventbrite.com",
+  },
+  {
+    title: "Hostinger Tech Blog",
+    description:
+      "Technical blog for Hostinger, sharing insights on web hosting, scaling, and performance optimization.",
+    tech: ["React", "Gatsby", "GraphQL", "Cloud"],
+    github: "https://github.com/troyankostandd",
+    image: "/src/assets/projects/www.hostinger.com.png",
+    live: "https://www.hostinger.com",
+  },
+];
+// Projects page intro text
+export const projectsIntro =
+  "Selected projects and products I've built or contributed to as a full stack developer.";
+// Skills page intro text
+export const skillsIntro =
+  "Over 8 years of experience working with a diverse set of technologies across the full stack. Here's an overview of my technical expertise:";
+// Professional focus areas for About page
+export const focusAreas = [
+  "Building scalable web applications with modern JavaScript/TypeScript stacks",
+  "Cloud infrastructure and DevOps practices (AWS, Docker, Kubernetes)",
+  "Performance optimization and system reliability",
+  "API design and microservices architecture",
+  "Database optimization and data management",
+  "Team collaboration in distributed, remote-first environments",
+];
 // Profile Data - Based on my-info.txt
 export const profileData = {
   name: "Konstantin Troianivski",

@@ -8,85 +8,10 @@ import {
   Chip,
   Stack,
 } from "@mui/material";
+import { projectsIntro, projects } from "../data/profileData";
 import WorkIcon from "@mui/icons-material/Work";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LanguageIcon from "@mui/icons-material/Language";
-
-// Import images from assets/projects
-import imgSquareup from "../assets/projects/developer.squareup.com.png";
-import imgSpotify from "../assets/projects/engineering.atspotify.com.png";
-import imgLine from "../assets/projects/engineering.linecorp.com.png";
-import imgSchibsted from "../assets/projects/schibsted-vend.pl.png";
-import imgBigeng from "../assets/projects/www.bigeng.io.png";
-import imgEventbrite from "../assets/projects/www.eventbrite.com.png";
-import imgHostinger from "../assets/projects/www.hostinger.com.png";
-
-// Example portfolio projects (replace with your real projects)
-const projects = [
-  {
-    title: "Squareup Developer Portal",
-    description:
-      "Developer portal for Squareup, providing API documentation and tools for payment integration.",
-    tech: ["React", "Next.js", "Node.js", "API"],
-    github: "https://github.com/troyankostandd",
-    image: imgSquareup,
-    live: "https://developer.squareup.com",
-  },
-  {
-    title: "Spotify Engineering Blog",
-    description:
-      "Engineering blog platform for Spotify, featuring articles on backend, frontend, and data engineering.",
-    tech: ["React", "Gatsby", "GraphQL"],
-    github: "https://github.com/troyankostandd",
-    image: imgSpotify,
-    live: "https://engineering.atspotify.com",
-  },
-  {
-    title: "LINE Engineering",
-    description:
-      "Technical blog and showcase for LINE's engineering team, covering large-scale messaging infrastructure.",
-    tech: ["Vue.js", "Nuxt.js", "Node.js"],
-    github: "https://github.com/troyankostandd",
-    image: imgLine,
-    live: "https://engineering.linecorp.com",
-  },
-  {
-    title: "Schibsted Vend Platform",
-    description:
-      "E-commerce platform for Schibsted, supporting high-traffic classified ads and secure transactions.",
-    tech: ["React", "Redux", "Node.js", "AWS"],
-    github: "https://github.com/troyankostandd",
-    image: imgSchibsted,
-    live: "https://schibsted-vend.pl",
-  },
-  {
-    title: "BigEng.io Blog",
-    description:
-      "Engineering blog for BigEng.io, focused on distributed systems, cloud, and DevOps best practices.",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
-    github: "https://github.com/troyankostandd",
-    image: imgBigeng,
-    live: "https://www.bigeng.io",
-  },
-  {
-    title: "Eventbrite Engineering",
-    description:
-      "Showcase of Eventbrite's engineering projects, including event management and ticketing solutions.",
-    tech: ["React", "Django", "PostgreSQL"],
-    github: "https://github.com/troyankostandd",
-    image: imgEventbrite,
-    live: "https://www.eventbrite.com",
-  },
-  {
-    title: "Hostinger Tech Blog",
-    description:
-      "Technical blog for Hostinger, sharing insights on web hosting, scaling, and performance optimization.",
-    tech: ["React", "Gatsby", "GraphQL", "Cloud"],
-    github: "https://github.com/troyankostandd",
-    image: imgHostinger,
-    live: "https://www.hostinger.com",
-  },
-];
 
 const Projects = () => {
   return (
@@ -95,8 +20,7 @@ const Projects = () => {
         Projects
       </Typography>
       <Typography variant="body1" sx={{ mb: 6 }}>
-        Selected projects and products I've built or contributed to as a full
-        stack developer.
+        {projectsIntro}
       </Typography>
       <Grid container spacing={4}>
         {projects.map((project, idx) => (

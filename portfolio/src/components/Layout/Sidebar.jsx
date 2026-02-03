@@ -14,7 +14,7 @@ import EmailIcon from "@mui/icons-material/Email";
 import PhoneIcon from "@mui/icons-material/Phone";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { profileData } from "../../data/profileData";
-import MyImage from "../../assets/me.png";
+import MyImage from "/src/assets/me.png";
 
 const Sidebar = () => {
   // Get initials for profile placeholder
