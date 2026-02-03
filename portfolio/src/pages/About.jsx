@@ -1,51 +1,173 @@
+import { Box, Typography, Card, CardContent, Chip, Stack } from "@mui/material";
+import SchoolIcon from "@mui/icons-material/School";
+import TranslateIcon from "@mui/icons-material/Translate";
+import WorkIcon from "@mui/icons-material/Work";
 import { profileData, education } from "../data/profileData";
 
 const About = () => {
+  const focusAreas = [
+    "Building scalable web applications with modern JavaScript/TypeScript stacks",
+    "Cloud infrastructure and DevOps practices (AWS, Docker, Kubernetes)",
+    "Performance optimization and system reliability",
+    "API design and microservices architecture",
+    "Database optimization and data management",
+    "Team collaboration in distributed, remote-first environments",
+  ];
+
   return (
-    <div className="about-page">
-      <h1 className="page-title">About Me</h1>
+    <Box>
+      <Typography
+        variant="h3"
+        component="h1"
+        className="font-bold mb-6"
+        sx={{
+          fontWeight: 700,
+          marginBottom: 3,
+          color: "#494e52",
+          borderBottom: "none",
+        }}
+      >
+        About Me
+      </Typography>
 
-      <section>
-        <p style={{ fontSize: "1.1em", lineHeight: "1.7" }}>
-          {profileData.summary}
-        </p>
-      </section>
+      <Typography
+        variant="body1"
+        className="text-lg leading-relaxed mb-8"
+        sx={{ fontSize: "1.125rem", lineHeight: 1.8, marginBottom: 4 }}
+      >
+        {profileData.summary}
+      </Typography>
 
-      <section>
-        <h2>Education</h2>
+      {/* Education Section */}
+      <Box className="mb-8">
+        <Box className="flex items-center gap-2 mb-4">
+          <SchoolIcon sx={{ color: "#52adc8" }} />
+          <Typography
+            variant="h5"
+            component="h2"
+            sx={{
+              fontWeight: 700,
+              borderBottom: "none",
+              marginTop: 0,
+              paddingBottom: 0,
+            }}
+          >
+            Education
+          </Typography>
+        </Box>
         {education.map((edu) => (
-          <div key={edu.id} className="education-card">
-            <h4>{edu.university}</h4>
-            <p className="degree">{edu.degree}</p>
-            <p className="meta">
-              {edu.location} • {edu.duration}
-            </p>
-          </div>
+          <Card
+            key={edu.id}
+            elevation={0}
+            sx={{
+              backgroundColor: "#f2f3f3",
+              borderLeft: "4px solid #52adc8",
+              marginBottom: 2,
+            }}
+          >
+            <CardContent>
+              <Typography
+                variant="h6"
+                sx={{ fontWeight: 600, marginBottom: 0.5 }}
+              >
+                {edu.university}
+              </Typography>
+              <Typography
+                sx={{ color: "#52adc8", fontWeight: 600, marginBottom: 1 }}
+              >
+                {edu.degree}
+              </Typography>
+              <Typography variant="body2" sx={{ color: "#7a8288" }}>
+                {edu.location} • {edu.duration}
+              </Typography>
+            </CardContent>
+          </Card>
         ))}
-      </section>
+      </Box>
 
-      <section>
-        <h2>Languages</h2>
-        <p>{profileData.languages.join(", ")}</p>
-      </section>
+      {/* Languages Section */}
+      <Box className="mb-8">
+        <Box className="flex items-center gap-2 mb-4">
+          <TranslateIcon sx={{ color: "#52adc8" }} />
+          <Typography
+            variant="h5"
+            component="h2"
+            sx={{
+              fontWeight: 700,
+              borderBottom: "none",
+              marginTop: 0,
+              paddingBottom: 0,
+            }}
+          >
+            Languages
+          </Typography>
+        </Box>
+        <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
+          {profileData.languages.map((lang, index) => (
+            <Chip
+              key={index}
+              label={lang}
+              variant="outlined"
+              sx={{
+                borderColor: "#52adc8",
+                color: "#52adc8",
+                "&:hover": { backgroundColor: "#52adc8", color: "#fff" },
+              }}
+            />
+          ))}
+        </Stack>
+      </Box>
 
-      <section>
-        <h2>Professional Focus</h2>
-        <ul>
-          <li>
-            Building scalable web applications with modern JavaScript/TypeScript
-            stacks
-          </li>
-          <li>
-            Cloud infrastructure and DevOps practices (AWS, Docker, Kubernetes)
-          </li>
-          <li>Performance optimization and system reliability</li>
-          <li>API design and microservices architecture</li>
-          <li>Database optimization and data management</li>
-          <li>Team collaboration in distributed, remote-first environments</li>
-        </ul>
-      </section>
-    </div>
+      {/* Professional Focus Section */}
+      <Box>
+        <Box className="flex items-center gap-2 mb-4">
+          <WorkIcon sx={{ color: "#52adc8" }} />
+          <Typography
+            variant="h5"
+            component="h2"
+            sx={{
+              fontWeight: 700,
+              borderBottom: "none",
+              marginTop: 0,
+              paddingBottom: 0,
+            }}
+          >
+            Professional Focus
+          </Typography>
+        </Box>
+        <Box
+          component="ul"
+          className="space-y-2 pl-0"
+          sx={{ listStyle: "none", padding: 0 }}
+        >
+          {focusAreas.map((area, index) => (
+            <Box
+              key={index}
+              component="li"
+              className="flex items-start gap-3 py-2"
+              sx={{
+                display: "flex",
+                alignItems: "flex-start",
+                gap: 1.5,
+                padding: "8px 0",
+              }}
+            >
+              <Box
+                sx={{
+                  width: 8,
+                  height: 8,
+                  borderRadius: "50%",
+                  backgroundColor: "#52adc8",
+                  marginTop: "8px",
+                  flexShrink: 0,
+                }}
+              />
+              <Typography>{area}</Typography>
+            </Box>
+          ))}
+        </Box>
+      </Box>
+    </Box>
   );
 };
 

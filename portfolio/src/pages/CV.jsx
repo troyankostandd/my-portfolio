@@ -1,11 +1,28 @@
 import {
-  FaDownload,
-  FaGithub,
-  FaLinkedin,
-  FaEnvelope,
-  FaPhone,
-  FaMapMarkerAlt,
-} from "react-icons/fa";
+  Box,
+  Typography,
+  Card,
+  CardContent,
+  Chip,
+  Stack,
+  Divider,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Button,
+} from "@mui/material";
+import DownloadIcon from "@mui/icons-material/Download";
+import EmailIcon from "@mui/icons-material/Email";
+import PhoneIcon from "@mui/icons-material/Phone";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import WorkIcon from "@mui/icons-material/Work";
+import SchoolIcon from "@mui/icons-material/School";
+import CodeIcon from "@mui/icons-material/Code";
+
+import TranslateIcon from "@mui/icons-material/Translate";
 import {
   profileData,
   skills,
@@ -15,114 +32,325 @@ import {
 
 const CV = () => {
   return (
-    <div className="cv-page">
-      <h1 className="page-title">Curriculum Vitae</h1>
+    <Box>
+      <Stack direction="row" alignItems="center" spacing={2} mb={4}>
+        <Typography
+          variant="h3"
+          component="h1"
+          sx={{
+            fontWeight: 700,
+            color: "#494e52",
+            borderBottom: "none",
+          }}
+        >
+          Curriculum Vitae
+        </Typography>
+        <Button
+          variant="outlined"
+          color="primary"
+          href="/src/assets/cv.pdf"
+          download
+          startIcon={<DownloadIcon />}
+          sx={{ textTransform: "none", fontWeight: 500 }}
+        >
+          Download PDF
+        </Button>
+      </Stack>
 
       {/* Contact Info */}
-      <section className="cv-section">
-        <h2>Contact Information</h2>
-        <div className="contact-info">
-          <div className="contact-item">
-            <FaEnvelope />
-            <a href={`mailto:${profileData.email}`}>{profileData.email}</a>
-          </div>
-          <div className="contact-item">
-            <FaPhone />
-            <a href={`tel:${profileData.phone}`}>{profileData.phone}</a>
-          </div>
-          <div className="contact-item">
-            <FaMapMarkerAlt />
-            <span>{profileData.address}</span>
-          </div>
-          <div className="contact-item">
-            <FaLinkedin />
-            <a
-              href={profileData.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              LinkedIn Profile
-            </a>
-          </div>
-          <div className="contact-item">
-            <FaGithub />
-            <a
-              href={profileData.github}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              GitHub Profile
-            </a>
-          </div>
-        </div>
-      </section>
+      <Box sx={{ marginBottom: 4 }}>
+        <Box className="flex items-center gap-2 mb-3">
+          <EmailIcon sx={{ color: "#52adc8" }} />
+          <Typography
+            variant="h5"
+            component="h2"
+            sx={{
+              fontWeight: 700,
+              borderBottom: "none",
+              marginTop: 0,
+              paddingBottom: 0,
+            }}
+          >
+            Contact Information
+          </Typography>
+        </Box>
+        <Card
+          elevation={0}
+          sx={{ backgroundColor: "#f2f3f3", borderRadius: 2 }}
+        >
+          <CardContent>
+            <List dense>
+              <ListItem>
+                <ListItemIcon>
+                  <EmailIcon sx={{ color: "#52adc8" }} />
+                </ListItemIcon>
+                <ListItemText
+                  primary={
+                    <a
+                      href={`mailto:${profileData.email}`}
+                      className="text-primary hover:underline"
+                    >
+                      {profileData.email}
+                    </a>
+                  }
+                />
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>
+                  <PhoneIcon sx={{ color: "#52adc8" }} />
+                </ListItemIcon>
+                <ListItemText
+                  primary={
+                    <a
+                      href={`tel:${profileData.phone}`}
+                      className="text-primary hover:underline"
+                    >
+                      {profileData.phone}
+                    </a>
+                  }
+                />
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>
+                  <LocationOnIcon sx={{ color: "#52adc8" }} />
+                </ListItemIcon>
+                <ListItemText primary={profileData.address} />
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>
+                  <LinkedInIcon sx={{ color: "#52adc8" }} />
+                </ListItemIcon>
+                <ListItemText
+                  primary={
+                    <a
+                      href={profileData.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary hover:underline"
+                    >
+                      LinkedIn Profile
+                    </a>
+                  }
+                />
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>
+                  <GitHubIcon sx={{ color: "#52adc8" }} />
+                </ListItemIcon>
+                <ListItemText
+                  primary={
+                    <a
+                      href={profileData.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary hover:underline"
+                    >
+                      GitHub Profile
+                    </a>
+                  }
+                />
+              </ListItem>
+            </List>
+          </CardContent>
+        </Card>
+      </Box>
 
       {/* Summary */}
-      <section className="cv-section">
-        <h2>Professional Summary</h2>
-        <p>{profileData.summary}</p>
-      </section>
+      <Box sx={{ marginBottom: 4 }}>
+        <Box className="flex items-center gap-2 mb-3">
+          <WorkIcon sx={{ color: "#52adc8" }} />
+          <Typography
+            variant="h5"
+            component="h2"
+            sx={{
+              fontWeight: 700,
+              borderBottom: "none",
+              marginTop: 0,
+              paddingBottom: 0,
+            }}
+          >
+            Professional Summary
+          </Typography>
+        </Box>
+        <Typography sx={{ lineHeight: 1.7 }}>{profileData.summary}</Typography>
+      </Box>
 
       {/* Skills */}
-      <section className="cv-section">
-        <h2>Technical Skills</h2>
-        {Object.values(skills).map((category, index) => (
-          <div key={index} style={{ marginBottom: "1em" }}>
-            <strong>{category.title}:</strong>{" "}
-            <span>{category.items.join(", ")}</span>
-          </div>
-        ))}
-      </section>
+      <Box sx={{ marginBottom: 4 }}>
+        <Box className="flex items-center gap-2 mb-3">
+          <CodeIcon sx={{ color: "#52adc8" }} />
+          <Typography
+            variant="h5"
+            component="h2"
+            sx={{
+              fontWeight: 700,
+              borderBottom: "none",
+              marginTop: 0,
+              paddingBottom: 0,
+            }}
+          >
+            Technical Skills
+          </Typography>
+        </Box>
+        <Box className="space-y-3">
+          {Object.values(skills).map((category, index) => (
+            <Box key={index}>
+              <Typography
+                variant="subtitle2"
+                sx={{ fontWeight: 600, color: "#3d8ba3", marginBottom: 1 }}
+              >
+                {category.title}
+              </Typography>
+              <Stack direction="row" flexWrap="wrap" useFlexGap gap={1}>
+                {category.items.map((item, idx) => (
+                  <Chip
+                    key={idx}
+                    label={item}
+                    size="small"
+                    sx={{
+                      backgroundColor: "#fff",
+                      border: "1px solid #e6e6e6",
+                      fontSize: "0.75rem",
+                    }}
+                  />
+                ))}
+              </Stack>
+            </Box>
+          ))}
+        </Box>
+      </Box>
 
       {/* Experience */}
-      <section className="cv-section">
-        <h2>Professional Experience</h2>
-        {experience.map((job) => (
-          <article key={job.id} className="experience-card">
-            <div className="experience-header">
-              <h3 className="experience-title" style={{ fontSize: "1.1em" }}>
-                {job.title}{" "}
-                <span className="experience-company">@ {job.company}</span>
-              </h3>
-              <span className="experience-meta">{job.duration}</span>
-            </div>
-            <div className="experience-meta">
-              <span>
-                {job.location} • {job.type}
-              </span>
-              {job.project && <span> • Project: {job.project}</span>}
-            </div>
-            <div className="experience-description">
-              <ul>
-                {job.responsibilities.slice(0, 5).map((item, index) => (
-                  <li key={index}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          </article>
-        ))}
-      </section>
+      <Box sx={{ marginBottom: 4 }}>
+        <Box className="flex items-center gap-2 mb-3">
+          <WorkIcon sx={{ color: "#52adc8" }} />
+          <Typography
+            variant="h5"
+            component="h2"
+            sx={{
+              fontWeight: 700,
+              borderBottom: "none",
+              marginTop: 0,
+              paddingBottom: 0,
+            }}
+          >
+            Professional Experience
+          </Typography>
+        </Box>
+        <Box className="space-y-4">
+          {experience.map((job) => (
+            <Card
+              key={job.id}
+              elevation={0}
+              sx={{ border: "1px solid #e6e6e6", borderRadius: 2 }}
+            >
+              <CardContent>
+                <Box className="flex flex-col md:flex-row md:justify-between md:items-start gap-1 mb-2">
+                  <Typography variant="h6" sx={{ fontWeight: 600 }}>
+                    {job.title}{" "}
+                    <span style={{ color: "#52adc8" }}>@ {job.company}</span>
+                  </Typography>
+                  <Chip
+                    label={job.duration}
+                    size="small"
+                    variant="outlined"
+                    sx={{ borderColor: "#52adc8", color: "#52adc8" }}
+                  />
+                </Box>
+                <Typography
+                  variant="body2"
+                  sx={{ color: "#7a8288", marginBottom: 2 }}
+                >
+                  {job.location} • {job.type}
+                  {job.project && ` • Project: ${job.project}`}
+                </Typography>
+                <Box component="ul" sx={{ paddingLeft: 2, margin: 0 }}>
+                  {job.responsibilities.slice(0, 5).map((item, index) => (
+                    <Box component="li" key={index} sx={{ marginBottom: 0.5 }}>
+                      <Typography variant="body2">{item}</Typography>
+                    </Box>
+                  ))}
+                </Box>
+              </CardContent>
+            </Card>
+          ))}
+        </Box>
+      </Box>
 
       {/* Education */}
-      <section className="cv-section">
-        <h2>Education</h2>
+      <Box sx={{ marginBottom: 4 }}>
+        <Box className="flex items-center gap-2 mb-3">
+          <SchoolIcon sx={{ color: "#52adc8" }} />
+          <Typography
+            variant="h5"
+            component="h2"
+            sx={{
+              fontWeight: 700,
+              borderBottom: "none",
+              marginTop: 0,
+              paddingBottom: 0,
+            }}
+          >
+            Education
+          </Typography>
+        </Box>
         {education.map((edu) => (
-          <div key={edu.id} className="education-card">
-            <h4>{edu.university}</h4>
-            <p className="degree">{edu.degree}</p>
-            <p className="meta">
-              {edu.location} • {edu.duration}
-            </p>
-          </div>
+          <Card
+            key={edu.id}
+            elevation={0}
+            sx={{
+              backgroundColor: "#f2f3f3",
+              borderLeft: "4px solid #52adc8",
+              borderRadius: 2,
+            }}
+          >
+            <CardContent>
+              <Typography variant="h6" sx={{ fontWeight: 600 }}>
+                {edu.university}
+              </Typography>
+              <Typography sx={{ color: "#52adc8", fontWeight: 600 }}>
+                {edu.degree}
+              </Typography>
+              <Typography variant="body2" sx={{ color: "#7a8288" }}>
+                {edu.location} • {edu.duration}
+              </Typography>
+            </CardContent>
+          </Card>
         ))}
-      </section>
+      </Box>
 
       {/* Languages */}
-      <section className="cv-section">
-        <h2>Languages</h2>
-        <p>{profileData.languages.join(", ")}</p>
-      </section>
-    </div>
+      <Box>
+        <Box className="flex items-center gap-2 mb-3">
+          <TranslateIcon sx={{ color: "#52adc8" }} />
+          <Typography
+            variant="h5"
+            component="h2"
+            sx={{
+              fontWeight: 700,
+              borderBottom: "none",
+              marginTop: 0,
+              paddingBottom: 0,
+            }}
+          >
+            Languages
+          </Typography>
+        </Box>
+        <Stack direction="row" spacing={1}>
+          {profileData.languages.map((lang, index) => (
+            <Chip
+              key={index}
+              label={lang}
+              sx={{
+                backgroundColor: "#52adc8",
+                color: "#fff",
+                fontWeight: 500,
+              }}
+            />
+          ))}
+        </Stack>
+      </Box>
+    </Box>
   );
 };
 
