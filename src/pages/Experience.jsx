@@ -127,10 +127,7 @@ const Experience = () => {
                         flexShrink: 0,
                       }}
                     />
-                    <Typography
-                      variant="body2"
-                      sx={{ color: "#494e52", lineHeight: 1.6 }}
-                    >
+                    <Typography variant="body2" sx={{ lineHeight: 1.6 }}>
                       {item}
                     </Typography>
                   </Box>

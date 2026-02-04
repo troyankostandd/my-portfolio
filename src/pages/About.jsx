@@ -51,8 +51,9 @@ const About = () => {
             key={edu.id}
             elevation={0}
             sx={{
-              backgroundColor: "#f2f3f3",
-              borderLeft: "4px solid #52adc8",
+              backgroundColor: "#f2f3f327",
+              // borderLeft: "4px solid #52adc8",
+              border: "1px solid #e6e6e6",
               marginBottom: 2,
             }}
           >

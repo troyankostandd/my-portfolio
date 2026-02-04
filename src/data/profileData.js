@@ -227,7 +227,7 @@ export const education = [
     id: 1,
     university: "Politehnica University of Bucharest",
     location: "Bucharest, Romania",
-    degree: "Computer Science and Information Technology",
+    degree: "Bachelor's degree in Information Technology",
     duration: "10/2010 - 06/2014",
   },
 ];
