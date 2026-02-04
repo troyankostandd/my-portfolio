@@ -48,7 +48,7 @@ const CV = () => {
         <Button
           variant="outlined"
           color="primary"
-          href="/src/assets/cv.pdf"
+          href="/cv.pdf"
           download
           startIcon={<DownloadIcon />}
           sx={{ textTransform: "none", fontWeight: 500 }}
@@ -76,7 +76,7 @@ const CV = () => {
         </Box>
         <Card
           elevation={0}
-          sx={{ backgroundColor: "#f2f3f3", borderRadius: 2 }}
+          sx={{ backgroundColor: "#f2f3f327", borderRadius: 2 }}
         >
           <CardContent>
             <List dense>
@@ -208,7 +208,7 @@ const CV = () => {
                     label={item}
                     size="small"
                     sx={{
-                      backgroundColor: "#fff",
+                      backgroundColor: "#fff3",
                       border: "1px solid #e6e6e6",
                       fontSize: "0.75rem",
                     }}
@@ -266,7 +266,21 @@ const CV = () => {
                 </Typography>
                 <Box component="ul" sx={{ paddingLeft: 2, margin: 0 }}>
                   {job.responsibilities.slice(0, 5).map((item, index) => (
-                    <Box component="li" key={index} sx={{ marginBottom: 0.5 }}>
+                    <Box
+                      component="li"
+                      key={index}
+                      sx={{ marginBottom: 0.5, display: "flex", gap: 1.5 }}
+                    >
+                      <Box
+                        sx={{
+                          width: 6,
+                          height: 6,
+                          borderRadius: "50%",
+                          backgroundColor: "#52adc8",
+                          marginTop: "8px",
+                          flexShrink: 0,
+                        }}
+                      />
                       <Typography variant="body2">{item}</Typography>
                     </Box>
                   ))}
@@ -299,8 +313,9 @@ const CV = () => {
             key={edu.id}
             elevation={0}
             sx={{
-              backgroundColor: "#f2f3f3",
-              borderLeft: "4px solid #52adc8",
+              backgroundColor: "#f2f3f327",
+              // borderLeft: "4px solid #52adc8",
+              border: "1px solid #e6e6e6",
               borderRadius: 2,
             }}
           >

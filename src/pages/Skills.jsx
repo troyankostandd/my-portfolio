@@ -39,13 +39,14 @@ const Skills = () => {
 
       <Grid container spacing={3}>
         {Object.values(skills).map((category, index) => (
-          <Grid key={index} size={{ xs: 12, md: 6 }}>
+          <Grid key={index} item xs={12} md={6}>
             <Card
               elevation={0}
               sx={{
                 height: "100%",
-                backgroundColor: "#f2f3f3",
-                borderLeft: "4px solid #52adc8",
+                backgroundColor: "#f2f3f327",
+                // borderLeft: "4px solid #52adc8",
+                border: "1px solid #e6e6e6",
                 borderRadius: 2,
                 transition: "transform 0.2s ease, box-shadow 0.2s ease",
                 "&:hover": {
@@ -73,9 +74,9 @@ const Skills = () => {
                       label={skill}
                       size="small"
                       sx={{
-                        backgroundColor: "#fff",
+                        backgroundColor: "#fff3",
                         border: "1px solid #e6e6e6",
-                        color: "#494e52",
+                        // color: "#494e52",
                         fontWeight: 500,
                         "&:hover": {
                           backgroundColor: "#52adc8",
